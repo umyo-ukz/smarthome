@@ -1,0 +1,19 @@
+# Compiled output
+out/
+bin/
+*.class
+
+# IDE folders
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated JavaDoc is submitted separately in docs/, so keep it if you want it tracked
+# docs/
