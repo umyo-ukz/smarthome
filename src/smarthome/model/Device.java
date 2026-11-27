@@ -76,4 +76,6 @@ public interface Device {
      * @param observer the observer to register, ignored if null
      */
     void addObserver(DeviceObserver observer);
+
+    Runnable captureState();
 }

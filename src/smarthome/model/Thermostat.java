@@ -57,6 +57,16 @@ public class Thermostat extends AbstractDevice {
     }
 
     @Override
+    public int getValue() {
+        return temperature;
+    }
+
+    @Override
+    public String getValueLabel() {
+        return "Temperature (16-30 °C)";
+    }
+
+    @Override
     protected String details() {
         return "target " + temperature + " C";
     }

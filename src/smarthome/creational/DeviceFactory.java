@@ -5,6 +5,7 @@ import smarthome.model.DeviceType;
 import smarthome.model.Light;
 import smarthome.model.Speaker;
 import smarthome.model.Thermostat;
+import smarthome.structural.OldFanAdapter;
 
 /**
  * Creates devices by type.
@@ -43,8 +44,9 @@ public final class DeviceFactory {
                 return new Thermostat(name);
             case SPEAKER:
                 return new Speaker(name);
+            case FAN:
+                return new OldFanAdapter(name);
             default:
-                // FAN is added here once the OldFanAdapter exists.
                 throw new IllegalArgumentException("Device type not supported yet: " + type);
         }
     }

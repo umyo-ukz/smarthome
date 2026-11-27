@@ -1,9 +1,14 @@
 package smarthome;
 
 import smarthome.ui.ConsoleUI;
+import smarthome.ui.SmartHomeWindow;
 
 public class Main {
     public static void main(String[] args) {
-        new ConsoleUI().run();
+        if (args.length > 0 && args[0].equals("--console")) {
+            new ConsoleUI().run();
+        } else {
+            SmartHomeWindow.launch();
+        }
     }
 }

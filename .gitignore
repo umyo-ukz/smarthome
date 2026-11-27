@@ -1,6 +1,7 @@
 # Compiled output
 out/
 bin/
+dist/
 *.class
 
 # IDE folders

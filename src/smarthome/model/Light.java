@@ -56,6 +56,16 @@ public class Light extends AbstractDevice {
     }
 
     @Override
+    public int getValue() {
+        return brightness;
+    }
+
+    @Override
+    public String getValueLabel() {
+        return "Brightness (0-100)";
+    }
+
+    @Override
     protected String details() {
         return "brightness " + brightness;
     }

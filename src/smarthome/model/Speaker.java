@@ -56,6 +56,16 @@ public class Speaker extends AbstractDevice {
     }
 
     @Override
+    public int getValue() {
+        return volume;
+    }
+
+    @Override
+    public String getValueLabel() {
+        return "Volume (0-100)";
+    }
+
+    @Override
     protected String details() {
         return "volume " + volume;
     }

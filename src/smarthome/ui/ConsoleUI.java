@@ -116,7 +116,11 @@ public class ConsoleUI {
             System.out.println("Not a number");
             return;
         }
-        invoker.run(new SetValueCommand(d, v));
+        try {
+            invoker.run(new SetValueCommand(d, v));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private void createRoom() {
@@ -150,8 +154,12 @@ public class ConsoleUI {
             System.out.println("Unknown device");
             return;
         }
-        ((DeviceGroup) room).add(dev);
-        System.out.println("Added.");
+        try {
+            ((DeviceGroup) room).add(dev);
+            System.out.println("Added.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private void roomToggle() {

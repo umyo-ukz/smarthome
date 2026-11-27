@@ -4,19 +4,19 @@ import smarthome.model.Device;
 
 public class TurnOnCommand implements Command {
     private final Device device;
-    private boolean wasOn;
+    private Runnable previousState;
 
     public TurnOnCommand(Device device) { this.device = device; }
 
     @Override
     public void execute() {
-        wasOn = device.isOn();
+        previousState = device.captureState();
         device.turnOn();
     }
 
     @Override
     public void undo() {
-        if (!wasOn) device.turnOff();
+        previousState.run();
     }
 
     @Override

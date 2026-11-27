@@ -105,6 +105,26 @@ public abstract class AbstractDevice implements Device {
         return "";
     }
 
+    public abstract int getValue();
+
+    public abstract String getValueLabel();
+
+    @Override
+    public Runnable captureState() {
+        boolean wasOn = on;
+        int oldValue = getValue();
+        return () -> {
+            if (getValue() != oldValue) {
+                adjust(oldValue);
+            }
+            if (wasOn) {
+                turnOn();
+            } else {
+                turnOff();
+            }
+        };
+    }
+
     @Override
     public String getStatus() {
         String extra = details();
